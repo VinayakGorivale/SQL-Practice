@@ -1,0 +1,30 @@
+11. Match salespeople to customers according to what city they lived in
+select *
+from salespeople s
+JOIN customers c
+ON c.city = s.city;
+
+12. Find the largest order taken by each salesperson
+select snum, MAX(amt)
+from orders
+GROUP BY snum;
+
+13. Find customers in San Jose who have a rating above 200
+select *
+from customers
+where city = 'San Jose'
+AND rating > 200;
+
+14. List the names and commissions of all salespeople in London
+select sname, comm
+from salespeople
+where city = 'London';
+
+15. List all the orders of salesperson Motika from the order table
+select *
+from orders
+where snum = (
+select snum
+from salespeople
+where sname = 'Motika'
+);
